@@ -151,7 +151,7 @@ body {
 .menu__item {
   opacity: 0;
   transition: all 200ms ease;
-  /* overflow: hidden; */
+  overflow: hidden;
   position: relative;
   height: 100vh;
   width: 100vw;
