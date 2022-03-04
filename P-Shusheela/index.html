@@ -51,6 +51,7 @@
 
 </body>
 <script>
+  var i=0
 var song1 = new Audio('audio.mp3');
 var song2 = new Audio('audio2.mp3');
 var song3 = new Audio('audio3.mp3');
@@ -71,25 +72,17 @@ menuTrigger.forEach(btn => {
 });
 
 function firstPlay(){
-    song1.pause();
-    song1.currentTime=0;
-    song2.pause();
-    song2.currentTime=0;
-    song3.pause();
-    song3.currentTime=0;
-    song4.pause();
-    song4.currentTime=0;
-    song1.play();
+  songPlay('song1')
+  i++;
 }
 function pausePlay(){
-    song1.pause();
-    song1.currentTime=0;
-    song2.pause();
-    song2.currentTime=0;
-    song3.pause();
-    song3.currentTime=0;
-    song4.pause();
-    song4.currentTime=0;
+  if(i===0){
+    songPlay('song1')
+    i++;
+  }else if(i===1){
+    songPlay('pause')
+    i--;
+  }
     
 }
 
@@ -109,8 +102,10 @@ function songPlay(id){
         song2.play()
     }else if(id==='song3'){
         song3.play()
-    }else{
+    }else if(id==='song4'){
         song4.play()
+    }else{
+      
     }
 }
 
