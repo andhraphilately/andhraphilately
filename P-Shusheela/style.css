@@ -156,6 +156,7 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: #272727;
+  /* background-color: #1d1d1d; */
   transition-delay: 50ms;
   transform-origin: bottom;
   transform: scaleY(0);
@@ -209,7 +210,7 @@ body {
 
 .menu__item .menu__item__bg-container {
   background-image: url(./asset/4.jpg);
-  background-size: auto 100%;
+  background-size: cover;
 }
 .menu__item .menu__item__content {
   transition-delay: 0ms;
