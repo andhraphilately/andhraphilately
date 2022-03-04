@@ -1,114 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-<body>
-    <button type="button" class="menu-button js-menu-trigger" aria-label="Click to open menu" onclick="pausePlay()"></button>
-<div class="pen-title js-menu-trigger" onclick="firstPlay()">
-  <h1>Tribute to our Melody Queen</h1>
-  <div class="info">Play </div>
-  <i class='bx bx-play-circle'></i>
-</div>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-<div class="menu js-menu">
-  <div class="menu__item">
-    <div class="menu__item__bg-container"></div>
-    <div class="menu__item__content">
-      <a href="#" class="btn-link"></a>
-    </div>
+<body>
+  <button type="button" class="menu-button js-menu-trigger" aria-label="Click to open menu"
+    onclick="pausePlay()"></button>
+  <div class="pen-title js-menu-trigger" onclick="firstPlay()">
+    <h1>Tribute to our Melody Queen</h1>
+    <div class="info">Play </div>
+    <i class='bx bx-play-circle'></i>
   </div>
-  <!-- <div class="menu__item">
-    <div class="menu__item__bg-container"></div>
-    <div class="menu__item__content">
-      <a href="#" class="btn-link">About</a>
+
+  <div class="menu js-menu">
+    <div class="menu__item">
+      <div class="menu__item__bg-container"></div>
+      <div class="menu__item__content">
+        <div class="videoPlayer">
+          <video width="100%" muted playsinline loop controls id="myVideo">
+            <source src="video.mp4" type="video/mp4">
+
+            Your browser does not support HTML video.
+          </video>
+        </div>
+        <div class="main-navigation"><a class="main-navigation__link" href="#" onclick="songPlay('song1')">Aakulo
+            Aakunai</a>
+          <p class="text-1">She was the recipient of the Padma Bhushan award in the year 2008 and the National award for
+            best singer in the years 1969, 1971, 1977, 1982 and 1983.</p>
+        </div>
+
+
+      </div>
     </div>
-  </div> -->
-  <div class="menu__item">
-    <div class="menu__item__bg-container"></div>
-    <div class="menu__item__content">
-      <nav class="main-navigation">
-        <a class="main-navigation__link" href="#"  onclick="songPlay('song1')">Neevu Leka Veena</a>
-        <a class="main-navigation__link" href="#"  onclick="songPlay('song2')">Aakulo Aakunai</a>
-        <a class="main-navigation__link" href="#"  onclick="songPlay('song3')">Marainthirunthu</a>
-        <a class="main-navigation__link" href="#"  onclick="songPlay('song4')">Solla Solla</a>
-      </nav>
-    </div>
+
+
+
   </div>
-  <!-- <div class="menu__item">
-    <div class="menu__item__bg-container"></div>
-    <div class="menu__item__content">
-      <a href="#" class="btn-link">Contact</a>
-    </div>
-  </div>
-  <div class="menu__item">
-    <div class="menu__item__bg-container"></div>
-    <div class="menu__item__content">
-      <a href="#" class="btn-link">More</a>
-    </div>
-  </div> -->
-</div>
 
 
 </body>
 <script>
-  var i=0
-var song1 = new Audio('audio.mp3');
-var song2 = new Audio('audio2.mp3');
-var song3 = new Audio('audio3.mp3');
-var song4 = new Audio('audio4.wav');
+  var i = 0
 
-const penTitle = document.querySelector('.pen-title');
-const menu = document.querySelector('.js-menu');
-const menuTrigger = document.querySelectorAll('.js-menu-trigger');
-menuTrigger.forEach(btn => {
-  btn.addEventListener('click', function() {
-    
-    menuTrigger.forEach(b => {
-        
-      b.classList.toggle('menu-trigger--menu-open');
+  const video = document.getElementById('myVideo')
+  const mute = document.getElementById('muteVideo')
+  const vol = document.getElementById('volVideo')
+
+
+  const penTitle = document.querySelector('.pen-title');
+  const menu = document.querySelector('.js-menu');
+  const menuTrigger = document.querySelectorAll('.js-menu-trigger');
+  menuTrigger.forEach(btn => {
+    btn.addEventListener('click', function () {
+
+      menuTrigger.forEach(b => {
+
+        b.classList.toggle('menu-trigger--menu-open');
+      });
+      menu.classList.toggle('menu--open');
     });
-    menu.classList.toggle('menu--open');
   });
-});
 
-function firstPlay(){
-  songPlay('song1')
-  i++;
-}
-function pausePlay(){
-  if(i===0){
-    songPlay('song1')
-    i++;
-  }else if(i===1){
-    songPlay('pause')
-    i--;
+  function firstPlay() {
+    video.play();
+    video.muted = false
   }
-    
-}
-
-
-function songPlay(id){
-    song1.pause();
-    song1.currentTime=0;
-    song2.pause();
-    song2.currentTime=0;
-    song3.pause();
-    song3.currentTime=0;
-    song4.pause();
-    song4.currentTime=0;
-    if(id==='song1'){
-        song1.play()
-    }else if(id==='song2'){
-        song2.play()
-    }else if(id==='song3'){
-        song3.play()
-    }else if(id==='song4'){
-        song4.play()
-    }else{
-      
-    }
-}
-
 
 
 
